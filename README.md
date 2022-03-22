@@ -20,3 +20,11 @@ npm start
     - [ ] Añade un nuevo botón "C" con su handler que borre los contenidos del párrafo y los dos input.
     - [ ] Añade un botón "M+" que almacene el valor de `result` en un "ref" de react. Llama `memory` al ref.
     - [ ] Añade un botón "MR" que copie el valor de `memory` en `firstNumber`.
+    3. Añade un nuevo componente.
+    - [ ] Crea un nuevo hook de tipo state. Llamale `resultsHistory` y dale un valo rinicial de array vacío `[]`.
+    - [ ] Crea las carpetas `components/history` para el nuevo componente.
+    - [ ] En la nueva carpeta, crea el fichero `History.jsx`.
+    - [ ] Crea la estructura básica del componente. Ha de recibir un `prop` al que llamaremos `results`.
+    - [ ] Utiliza `results.map` para obtener un array de elementos `li`. Llama al array `liArray`.
+    - [ ] La salida del componente ha de ser un elemento `ol` que contenga los elementos de `liArray`.
+    - [ ] Importa el componente `History` en el componente principal e incorpólo en su salida, proporcionando como prop `results` el contenido de `resultsHistory`.
