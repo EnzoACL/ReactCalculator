@@ -10,17 +10,21 @@ npm start
 2. Empieza a trabajar:
    - [ ] Abre la consola en el navegador y prueba a modificar el contenido del formulario en la app.
    - [ ] Estudia el contenido de `src/App.js` y entiende cómo está funcionando comparándolo con lo que puedes observar en el navegador.
-   - [ ] Añade una nuevo input asociado a un nuevo state `secondNumber`. Añade el `console.log` correspondiente en el `useEffect` existente para poder ver cómo funciona.
-   - [ ] Añade un `p` al final del documento asociado a un nuevo state `result`.
+   - [ ] Añade una nuevo input asociado a un nuevo hook state `secondNumber`. Añade el `console.log` correspondiente en el hook `useEffect` existente para poder ver cómo funciona.
+   - [ ] Añade un `p` al final del documento asociado a un nuevo hook state `result`.
         ```html
         <p>{result}</p>
         ```
-    - [ ] Añade un botón "sumar" que ejecute un handler `addHandler` en el evento `onClick`. `addHandler` ha de sumar los valores de `firstNumber` y `secondNumber` y poner el resultado en `result`. Comprueba que el resultado se muestra en la página.
-    - [ ] Añade nuevos botones con sus correspondientes handlers para las operaciones "restar", "multiplicar" y "dividir".
-    - [ ] Añade un nuevo botón "C" con su handler que borre los contenidos del párrafo y los dos input.
-    - [ ] Añade un botón "M+" que almacene el valor de `result` en un "ref" de react. Llama `memory` al ref.
-    - [ ] Añade un botón "MR" que copie el valor de `memory` en `firstNumber`.
-    3. Añade un nuevo componente.
+    - [ ] Añade un botón "sumar" que ejecute un handler `addHandler` en el evento `onClick`. `addHandler` ha de realizar las siguientes tareas:
+        - [ ] Poner `result` el resultado en **sumar** los valores de `firstNumber` y `secondNumber`. Comprueba que el resultado se muestra en la página.
+        - [ ] Poner en `firstNumber` el valor almacenado en `result`.
+        - [ ] Eliminar el valor de `secondNumber`.
+    - [ ] Añade nuevos botones con sus correspondientes handlers para las operaciones "restar", "multiplicar" y "dividir" siguiendo procesos equivalentes a los anteriores.
+    - [ ] Añade un nuevo botón "C" con su handler que borre datos mostrados en las entradas de datos y el resultado. Hazlo eliminado el valor de los hooks correspondientes.
+    - [ ] Añade un botón "M+" que almacene el valor de `result` en un hook "ref". Llama `memory` al ref.
+    - [ ] Añade un botón "MR" que copie el valor de `memory` en `secondNumber`.
+
+3. Añade un nuevo componente.
     - [ ] Crea un nuevo hook de tipo state. Llamale `resultsHistory` y dale un valo rinicial de array vacío `[]`.
     - [ ] Crea las carpetas `components/history` para el nuevo componente.
     - [ ] En la nueva carpeta, crea el fichero `History.jsx`.
