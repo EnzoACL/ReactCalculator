@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import './App.css';
-import componentHistory from './components/history/History';
+import ComponentHistory from './components/history/History';
 function App() {
   const [ firstNumber, setFirstNumber ] = useState(null);
 
@@ -24,7 +24,7 @@ function App() {
 //firstNumber
 //useEffect contiene una funcion flecha que se ejecuta al cambiar el firstNumber.
 
-//Funcion para sumar
+//Funciones para  + - * /
 const [result, setResult]= useState(null)
 function sumeOnClickHandler (){
   setResult (parseInt(firstNumber)+parseInt(secondNumber));
@@ -37,7 +37,6 @@ function multiplyOnClickHandler (){
 }
 function divideOnClickHandler () {
   setResult (parseInt(firstNumber) / parseInt(secondNumber));
-  if (result =NaN) {console.log('prueba')}
 }
 //Borrar campos
 function eraseOnClickHandler(){
@@ -50,10 +49,6 @@ const memory = useRef()
 function saveNumber(){
     memory.current = result
 }
-/*const [ savedNumber, setSavedNumber] = useState(null);
-function saveNumber (){
-  setSavedNumber (result)
-}*/
 //Copia valor de memoria en firstNumber
 function memoryCopy (){
   setFirstNumber (memory.current)
@@ -61,8 +56,19 @@ function memoryCopy (){
 //Historial
 const [resultHistory, setResultHistory] = useState([]);
 
-
-
+//Importa el componente `History` en el componente principal 
+//e incorpólo en su salida, proporcionando como prop `results` 
+//el contenido de `resultsHistory`.
+const firstRender = useRef(true);
+useEffect (
+  ()=>{
+    if (firstRender.current === true){
+      firstRender.current=false} else {
+      if (result !=""){setResultHistory([...resultHistory,result]);}
+    }
+  },
+  [result]
+)
 return (
     <>
       <h1>Calculadora</h1>
@@ -76,7 +82,7 @@ return (
       <input type="button" value="M+" onClick={saveNumber}/>
       <input type="button" value="MR" onClick={memoryCopy}/>
       <h1>Resultado:</h1><p>{result}</p>
-      <componentHistory/>     
+      <ComponentHistory historial={resultHistory}/>     
     </>
   );
 }
